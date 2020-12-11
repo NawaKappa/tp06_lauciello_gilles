@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<ul class="navbar-nav">
+		<a class="navbar-brand" [routerLink]="['.']">TP04 Gilles Lauciello</a>
+		<li class="nav-item">
+			<a class="nav-link" [routerLink]="['.']">Accueil</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" [routerLink]="['./catalog']">Catalogue</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" [routerLink]="['./client']">Client</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" [routerLink]="['./basket']">Panier ({{ nbProductsInBasket$ | async }})</a>
+		</li>
+		<div *ngIf="loggedIn()">
+		<li class="nav-item">
+			<a class="nav-link" [routerLink]="['.']" (click)="deconnexion()">Se déconnecter</a>
+		</li>
+		</div>
+	</ul>
+</nav>

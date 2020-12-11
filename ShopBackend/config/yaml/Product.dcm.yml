@@ -1,0 +1,17 @@
+Product:
+  type: entity
+  table: products
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    price:
+      type: float
+    productName:
+      type: string
+    description:
+      type: string
+    img:
+      type: string

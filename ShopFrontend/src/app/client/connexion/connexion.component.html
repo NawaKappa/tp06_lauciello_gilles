@@ -1,0 +1,16 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <p>login : test</p>
+    <p>mdp : test</p>
+    <form>
+      <input type="text" class="fadeIn second" name="login" [(ngModel)]="login" placeholder="login" required>
+      <input type="text" class="fadeIn third" name="pwd" [(ngModel)]="pwd" placeholder="password" required>
+      <input type="button" class="fadeIn fourth" value="Log In" (click)="connexion()">
+    </form>
+    
+    <div id="formFooter">
+        <input type="submit" class="fadeIn fourth" value="S'inscrire" [routerLink]="['/client/formulaire']">
+    </div>
+
+  </div>
+</div>

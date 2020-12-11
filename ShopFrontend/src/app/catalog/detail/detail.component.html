@@ -1,0 +1,10 @@
+
+<div class="card mt-4" *ngIf="product$ | async; let product">
+	<img src="{{ product.img }}" alt="" width="400" height="400">
+	<div class="card-body">
+		<h3 class="card-title">{{ product.productName }}</h3>
+		<h4>{{ product.price }}€</h4>
+		<p class="card-text">{{ product.description }}</p>
+		<button type="submit" (click)="onClickAddToBasket()" >Ajouter au panier</button>
+	</div>
+</div>

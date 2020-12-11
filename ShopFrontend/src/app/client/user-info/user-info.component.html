@@ -1,0 +1,17 @@
+<h1>Récapitulatif utilisateur</h1>
+<a [routerLink]="['/']" class="btn btn-primary" (click)="logout()">Se déconnecter</a>
+<div *ngIf="(user$ | async) as user">
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">Mon nom : {{user.nom}}</li>
+  <li class="list-group-item">Mon prénom : {{user.prenom }}</li>
+  <li class="list-group-item">Mon sexe : {{user.sexe }}</li>
+  <li class="list-group-item">Mon adresse : {{user.adresse }}</li>
+  <li class="list-group-item">Ma ville : {{user.ville }}</li>
+  <li class="list-group-item">Mon code postal : {{user.codepostal }}</li>
+  <li class="list-group-item">Mon téléphone : {{user.telephone }}</li>
+  <li class="list-group-item">Mon email : {{user.email }}</li>
+  <li class="list-group-item">Mon login : {{user.login }}</li>
+  <li class="list-group-item">Mon mot de passe : {{user.password }}</li>
+</ul>
+</div>
+

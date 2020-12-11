@@ -1,0 +1,17 @@
+<table class="table table-striped" *ngIf="listProducts$ | async">
+	<tr>
+		<th>Nom du produit</th>
+		<th>Description</th>
+		<th>Prix</th>
+		<th>Aperçu</th>
+	</tr>
+	<tbody>
+		<tr *ngFor="let product of listProducts$ | async">
+			<td>{{ product.productName }}</td>
+			<td>{{ product.description }}</td>
+			<td>{{ product.price }}€</td>
+			<td><img src="{{ product.img }}" alt="" width="150" height="125" ></td>
+      <td><button type="submit" (click)="onClickDelFromBasket(product)" >Supprimer du panier</button>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,37 @@
+[
+    {
+        "id": 0,
+        "price": "15.50",
+        "productName": "Peluche",
+        "description": "Un joli petit nounours",
+        "img": "https://cdn.jsdelivr.net/gh/NawaKappa/tp03_lauciello_gilles@master/src/assets/images/pelucheSimple.jpg"
+    },
+     {
+        "id": 1,
+        "price": "26",
+        "productName": "Licorne",
+        "description": "Une superbe licorne rose",
+        "img": "https://cdn.jsdelivr.net/gh/NawaKappa/tp03_lauciello_gilles@master/src/assets/images/licorne.jpg"
+    },
+     {
+        "id": 2,
+        "price": "8.99",
+        "productName": "Lunettes de soleil",
+        "description": "Une paire de lunettes de soleil rose",
+        "img": "https://cdn.jsdelivr.net/gh/NawaKappa/tp03_lauciello_gilles@master/src/assets/images/lunettessoleilrose.jpg"
+    },
+     {
+        "id": 3,
+        "price": "19.99",
+        "productName": "Lot de briquets",
+        "description": "Un lot de 5 briquets",
+        "img": "https://cdn.jsdelivr.net/gh/NawaKappa/tp03_lauciello_gilles@master/src/assets/images/lotbriquets.jpg"
+    },
+    {
+        "id": 4,
+        "price": "20.99",
+        "productName": "Peluche",
+        "description": "Un joli nounours très grand",
+        "img": "https://cdn.jsdelivr.net/gh/NawaKappa/tp03_lauciello_gilles@master/src/assets/images/grandepeluche.jpg"
+    }
+]

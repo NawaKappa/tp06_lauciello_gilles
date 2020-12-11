@@ -1,0 +1,108 @@
+<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+	[mustMatch]="['password', 'confirmPassword']" novalidate>
+
+	<div class="form-row">
+		<div class="form-group col-md-6">
+			<label for="nom">Nom</label>
+			<input type="text" class="form-control" name="nom" [(ngModel)]="model.nom" #nom="ngModel" placeholder="Nom" [ngClass]="{ 'is-invalid': f.submitted && nom.invalid }" onlyLetter required>
+			<div *ngIf="f.submitted && nom.invalid" class="invalid-feedback">
+				<div *ngIf="nom.errors.required">Le nom est requis</div>
+				<div *ngIf="nom.errors.onlyLetter">Pas de chiffres ou de caractères spéciaux</div>
+			</div>
+		</div>
+
+		<div class="form-group col-md-6">
+			<label for="prenom">Prenom</label>
+			<input type="text" class="form-control" name="prenom" [(ngModel)]="model.prenom" #prenom="ngModel" placeholder="Prenom" [ngClass]="{ 'is-invalid': f.submitted && prenom.invalid }" onlyLetter required>
+			<div *ngIf="f.submitted && prenom.invalid" class="invalid-feedback">
+				<div *ngIf="prenom.errors.required">Le prenom est requis</div>
+				<div *ngIf="prenom.errors.onlyLetter">Pas de chiffres ou de caractères spéciaux</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<input type="radio" value="homme" name="sexe" [(ngModel)]="model.sexe" #sexe="ngModel" [ngClass]="{ 'is-invalid': f.submitted && sexe.invalid }" required> Homme
+		<input type="radio" value="femme" name="sexe" [(ngModel)]="model.sexe" #sexe="ngModel" [ngClass]="{ 'is-invalid': f.submitted && sexe.invalid }" required> Femme
+		<div *ngIf="f.submitted && sexe.invalid" class="invalid-feedback">
+			Les sexe est requis.
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="adresse">Adresse</label>
+		<input type="text" class="form-control" name="adresse" [(ngModel)]="model.adresse" #adresse="ngModel"  placeholder="6 Grand Rue" [ngClass]="{ 'is-invalid': f.submitted && adresse.invalid }" required>
+		<div *ngIf="f.submitted && adresse.invalid" class="invalid-feedback">
+			<div *ngIf="adresse.errors.required">L'adresse est requise</div>
+		</div>
+	</div>
+
+	<div class="form-row">
+		<div class="form-group col-md-6">
+			<label for="ville">Ville</label>
+			<input type="text" class="form-control" name="ville" [(ngModel)]="model.ville" #ville="ngModel"  placeholder="Paris" [ngClass]="{ 'is-invalid': f.submitted && ville.invalid }" onlyLetter required>
+			<div *ngIf="f.submitted && ville.invalid" class="invalid-feedback">
+				<div *ngIf="ville.errors.required">La ville est requise</div>
+				<div *ngIf="ville.errors.onlyLetter">Pas de chiffres ou de caractères spéciaux</div>
+			</div>
+		</div>
+
+		<div class="form-group col-md-2">
+			<label for="codepostal">Code Postal</label>
+			<input type="text" class="form-control" name="codepostal" [(ngModel)]="model.codepostal" #codepostal="ngModel"   [ngClass]="{ 'is-invalid': f.submitted && codepostal.invalid }" required>
+			<div *ngIf="f.submitted && codepostal.invalid" class="invalid-feedback">
+				<div *ngIf="codepostal.errors.required">Le code postal est requis</div>
+			</div>
+		</div>
+
+		<div class="form-group col-md-3">
+			<label for="telephone">Numéro de téléphone</label>
+			<input type="text" class="form-control" name="telephone" [(ngModel)]="model.telephone" #telephone="ngModel" [ngClass]="{ 'is-invalid': f.submitted && telephone.invalid }" [value]="model.telephone | phonePipe:'FR'" required>
+			<div *ngIf="f.submitted && telephone.invalid" class="invalid-feedback">
+				<div *ngIf="telephone.errors.required">Le numéro de téléphone est requis</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-row">
+		<div class="form-group col-md-6">
+			<label for="email">Email</label>
+			<input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="model.email" #email="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required>
+			<div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+				<div *ngIf="email.errors.required">L'email est requis</div>
+			</div>
+		</div>
+
+
+		<div class="form-group col-md-6">
+			<label for="login">Login</label>
+			<input type="login" class="form-control" name="login" placeholder="Login" [(ngModel)]="model.login" #login="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && login.invalid }" required>
+			<div *ngIf="f.submitted && login.invalid" class="invalid-feedback">
+				<div *ngIf="login.errors.required">Le login est requis</div>
+			</div>
+		</div>
+
+		<div class="form-group col-md-6">
+			<label for="password">Mot de passe</label>
+			<input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required/>
+			<div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+				<div *ngIf="password.errors.required">Mot de passe requis</div>
+				<div *ngIf="password.errors.mustMatch">Les mots de passe doivent correspondre</div>
+			</div>
+		</div>
+
+		<div class="form-group col-md-6">
+			<label for="confirmPassword">Confirmer le mot de passe</label>
+			<input type="password" class="form-control" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.invalid }" required />
+			<div *ngIf="f.submitted && confirmPassword.invalid" class="invalid-feedback">
+				<div *ngIf="confirmPassword.errors.required">Mot de passe requis</div>
+				<div *ngIf="confirmPassword.errors.mustMatch">Les mots de passe doivent correspondre</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<button type="submit" class="btn btn-primary">Sign in</button>
+</form>

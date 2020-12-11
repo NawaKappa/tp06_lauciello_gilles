@@ -1,0 +1,48 @@
+<!-- source : https://www.bootdey.com/snippets/view/product-catalog#html -->
+<h1 class="text-center text-muted">Catalogue de produits</h1>
+
+<div class="container">
+	<div class="row">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<form class="form-inline" role="form">
+					<div class="form-group">
+						<label class="filter-col" style="margin-right:0;" for="pref-search">Nom du produit:</label>
+						<input (keyup)="applyFilters()" type="text" class="form-control input-sm" placeholder="Search..." name="filterInputs.productName" [(ngModel)]="filterInputs.productName">
+          </div>
+						<div class="form-group">
+							<label class="filter-col" style="margin-right:0;" for="pref-search">Prix minimum:</label>
+							<input (keyup)="applyFilters()" type="text" class="form-control input-sm" placeholder="€" name="filterInputs.minPrice" [(ngModel)]="filterInputs.minPrice">
+          </div>
+							<div class="form-group">
+								<label class="filter-col" style="margin-right:0;" for="pref-search">Prix maximum:</label>
+								<input (keyup)="applyFilters()" type="text" class="form-control input-sm" placeholder="€" name="filterInputs.maxPrice" [(ngModel)]="filterInputs.maxPrice">
+          </div>
+								<div class="form-group">
+									<button type="submit" class="btn btn-default filter-col" (click)="applyFilters()">
+              <span class="glyphicon glyphicon-record"></span> Search
+            </button>
+								</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="container bootstrap snipets">
+	<div class="row flow-offset-1">
+		<div class="col-xs-6 col-md-4" *ngFor="let product of productsFiltered$ | async">
+			<div class="product tumbnail thumbnail-3"><a [routerLink]="['./detail',product.id]"><img src="{{product.img}}" alt=""
+        width="250" height="225" ></a>
+					<div class="caption">
+						<h6><a [routerLink]="['./detail',product.id]">{{product.productName}} :
+								{{product.description}}</a></h6>
+						<span class="price">{{product.price}}€</span>
+						<button type="submit" (click)="onClickAddToBasket(product)" >Ajouter au panier</button>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
